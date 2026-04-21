@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; font-family: sans-serif; }
+        .bar { height: 65px; background: #1a1a1a; display: flex; align-items: center; padding: 0 15px; border-bottom: 2px solid #333; }
+        input { flex: 1; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #222; color: #fff; outline: none; margin-right: 10px; font-size: 16px; }
+        button { padding: 12px 20px; background: #ff4a4a; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        iframe { width: 100%; height: calc(100% - 65px); border: none; background: #fff; }
+    </style>
+</head>
+<body>
+    <div class="bar">
+        <input type="text" id="url" placeholder="Escribe la URL (ej: google.com) y dale a IR">
+        <button onclick="load()">IR</button>
+    </div>
+    <iframe id="screen"></iframe>
+    <script>
+        function load() {
+            let val = document.getElementById('url').value.trim();
+            if (!val) return;
+            if (!val.startsWith('http')) val = 'https://' + val;
+            // Nodo de carga directa para tu sitio
+            document.getElementById('screen').src = "https://proweb.eu.org/main/" + val;
+        }
+    </script>
+</body>
+</html>
